@@ -1,0 +1,32 @@
+.navbar {
+    overflow: hidden;
+    background-color: rgb(255,87,34) !important;
+    top: 0; 
+}
+
+.table-grid tr th{
+    background:#20a8d8;
+    color:white;
+    vertical-align:center;
+    font-size: 15px;
+}
+
+.table-grid tr td{
+    font-size: 15px;
+}
+
+.table-grid.dataTable tbody tr:hover {
+    background-color: #f2f2f2
+}
+
+.block-ui-message {
+    display: inline-block;
+    text-align: left;
+    background-color: rgba(255, 249, 192, 0); 
+    color: #333;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 20px;
+    font-weight: 100;
+    filter: alpha(opacity=100);
+}

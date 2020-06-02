@@ -1,0 +1,30 @@
+
+
+<div ng-cloak>
+    <md-content>
+
+        <md-toolbar class="md-hue-2 navbar">
+        
+            <div class="md-toolbar-tools">
+    
+                <h2 flex md-truncate>Product Pricing Engine</h2>
+    
+            </div>
+        </md-toolbar>
+
+        <md-tabs md-dynamic-height md-border-bottom>
+
+            <md-tab label="Products">
+                <md-content class="md-padding">
+                    <div ng-include="'views/products.html'"></div>
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Pricing">
+                <md-content class="md-padding">
+                    <div ng-include="'views/pricing.html'"></div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

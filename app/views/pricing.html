@@ -1,0 +1,63 @@
+<div style="margin: 0px 120px;">
+
+    <h2 class="md-display-1">Pricing</h2>
+
+
+    <md-card style="margin: 0px;">
+        <form name="pricingForm" ng-cloak>
+        <md-card-content>
+
+            
+
+                <div layout="row">
+
+                    <md-input-container class="md-block" flex-gt-sm="30" style="margin: 20px;">
+                        <label>Select Product</label>
+                        <md-select name="pricingProduct" ng-model="form.pricingProduct">
+                            <md-option ng-value="product" ng-repeat="product in products">{{ product.name }}</md-option>
+                        </md-select>
+                        <div ng-messages="pricingForm.pricingProduct.$error">
+                            <div ng-message="required">This is required!</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm="15" style="margin: 20px;">
+                        <label>Quantity (Cartons)</label>
+                        <input name="cartons" type="number" min="0" step="1" ng-model="form.cartons"/>
+                        <div ng-messages="pricingForm.cartons.$error">
+                            <div ng-message="min">Invalid Quantity!</div>
+                            <div ng-message="step">Invalid Quantity!</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-sm="15" style="margin: 20px;">
+                        <label>Quantity (Units)</label>
+                        <md-select name="unit" ng-model="form.units">
+                            <md-option ng-value="$index" ng-repeat="unit in [].constructor(form.pricingProduct.unitsPerCarton) track by $index">{{ $index }}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <div flex-gt-sm="40" layout="row" style="margin: 10px;"> 
+                        <div flex>
+                            <md-button class="md-raised md-warn" ng-disabled="!form.pricingProduct || (!form.cartons && !form.units)" ng-click="calculate(form.pricingProduct, form.cartons, form.units)">
+                                Calculate Price
+                            </md-button>
+                        </div>
+                        <div flex>
+                            <md-button class="md-raised md-primary" ng-click="clear()" class="md-primary">
+                                Clear
+                            </md-button>
+                        </div>
+                    </div>
+
+                </div>
+
+            
+
+            <div ng-if="price" style="text-align: center;">
+                <h1>Price : {{price}}</h1>
+            </div>
+        </md-card-content>
+    </form>
+    </md-card>
+</div>

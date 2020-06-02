@@ -1,0 +1,63 @@
+<div style="margin: 0px 120px;">
+    <h2 class="md-display-1">Products</h2>
+
+    <div>
+        <md-input-container class="md-block" flex-gt-sm="20">
+            <label>Select Product</label>
+            <md-select name="selectedProduct" ng-model="selectedProduct" ng-change="changeProduct(selectedProduct)">
+                <md-option ng-value="product" ng-repeat="product in products">{{ product.name }}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <md-card style="margin: 0px;">
+
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">{{selectedProduct.name}}</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+
+            <div layout="row">
+                <div flex="30">
+                    <table>
+                        <tr>
+                            <td style="width:50%;font-weight: 700;">Carton Price</td>
+                            <td style="width:10%;font-weight: 700;">:</td>
+                            <td style="width:300%;font-weight: 700;">{{selectedProduct.cartonPrice}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%;font-weight: 700;">Units Per Carton</td>
+                            <td style="width:10%;font-weight: 700;">:</td>
+                            <td style="width:30%;font-weight: 700;">{{selectedProduct.unitsPerCarton}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div flex="70">
+                    <span style="font-weight: 700;">Pricing Formula : </span>
+                    <p>If you purchase single units, the price is acquired using the carton price multiplied by an increase of 30% (1.3). If you purchase 3 cartons or more, you will receive a 10% discount off the carton price</p>
+                </div>
+            </div>
+            
+
+            <table datatable="ng" dt-instance="dtInstance" class="responsive table-grid" dt-options="dtOptions">
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">#</th>
+                        <th style="text-align: left;">Cartons & Units</th>
+                        <th style="text-align: left;">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dt-rows ng-repeat="x in priceList">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ x.cartons + " cartons " + x.units + " units"}}</td>
+                        <td>{{ x.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-card-content>
+
+    </md-card>
+</div>
