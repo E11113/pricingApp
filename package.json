@@ -21,7 +21,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^3.0.0",
-    "jsonwebtoken": "^8.1.1",
+    "jsonwebtoken": "^9.0.0",
     "mysql": "^2.15.0",
     "natives": "^1.1.6",
     "recaptcha-verify": "^0.1.1"
